@@ -1,0 +1,93 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Real Talk Cards</title>
+  <meta name="description" content="Cards That Say What Everybody's Thinking. Greeting cards built around the Black American experience.">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Archivo+Black&family=Fraunces:opsz,wght@9..144,500;9..144,700&family=Inter:wght@400;600&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+  <header class="topbar">
+    <a href="#" class="logo">Real Talk <span>Cards</span></a>
+    <button class="bag-btn" id="bagBtn" aria-label="Open bag">Bag <span id="bagCount">0</span></button>
+  </header>
+
+  <section class="hero">
+    <p class="eyebrow">Charlotte, NC · Printed on demand</p>
+    <h1>Cards That Say What Everybody's Thinking.</h1>
+    <p class="lede">Most cards ignore our culture or put our faces on somebody else's words. Real Talk Cards puts our voices inside. Pick the occasion, pick the vibe, and send it.</p>
+    <a href="#shop" class="cta">Find your card</a>
+  </section>
+
+  <section class="vibes" aria-label="The four vibes">
+    <div class="vibe-tile v-real"><h3>Real</h3><p>Honest, low-key, no fluff. Says exactly what it means.</p></div>
+    <div class="vibe-tile v-loving"><h3>Loving</h3><p>Deep, sincere, generational. The love Black families carry for decades.</p></div>
+    <div class="vibe-tile v-hype"><h3>Hype</h3><p>Big energy, big celebration. Some milestones deserve a declaration.</p></div>
+    <div class="vibe-tile v-petty"><h3>Petty</h3><p>Funny, sharp, just shady enough. The side-eye that's also love.</p></div>
+  </section>
+
+  <main id="shop" class="shop">
+    <h2>Shop the cards</h2>
+    <label class="field">
+      <span>Occasion</span>
+      <select id="occasionSelect"></select>
+    </label>
+    <div class="chips" id="vibeChips" role="group" aria-label="Filter by vibe"></div>
+    <p class="result-count" id="resultCount" aria-live="polite"></p>
+    <div class="grid" id="grid"></div>
+  </main>
+
+  <section class="phases">
+    <h2>What's coming</h2>
+    <ol>
+      <li><strong>Now: Printed cards.</strong> Pick it, personalize it, and we print and ship it.</li>
+      <li><strong>Next: Digital cards.</strong> Send by text or email. Great for last-minute love.</li>
+      <li><strong>Later: Subscriptions and bundles.</strong> Seasonal boxes, plus bulk orders for churches, sororities, fraternities, Black-owned businesses, and community groups.</li>
+    </ol>
+  </section>
+
+  <footer class="footer">
+    <h2>How we make our cards</h2>
+    <p>AI helps us draft card copy and create cover art. A human editor reviews, refines, and approves every card. AI is the tool. The creativity, culture, and vision are entirely human.</p>
+    <p class="small">© Real Talk Cards LLC · Charlotte, NC</p>
+  </footer>
+
+  <!-- Card detail -->
+  <dialog id="cardDialog" class="sheet">
+    <button class="close" data-close aria-label="Close">×</button>
+    <div class="detail">
+      <div class="flip" id="flip">
+        <div class="face front" id="detailFront"></div>
+        <div class="face inside" id="detailInside"></div>
+      </div>
+      <button class="link-btn" id="flipBtn">See inside</button>
+      <form id="personalize" class="personalize">
+        <h3>Make it personal (optional)</h3>
+        <label class="field"><span>To</span><input name="to" maxlength="40" autocomplete="off"></label>
+        <label class="field"><span>From</span><input name="from" maxlength="40" autocomplete="off"></label>
+        <label class="field"><span>Your note</span><textarea name="note" maxlength="200" rows="3" placeholder="Printed under the message"></textarea></label>
+        <div class="row">
+          <label class="field qty"><span>Qty</span><input name="qty" type="number" min="1" max="50" value="1"></label>
+          <p class="price">$<span id="detailPrice"></span> each</p>
+        </div>
+        <button type="submit" class="cta full">Add to bag</button>
+      </form>
+    </div>
+  </dialog>
+
+  <!-- Bag -->
+  <dialog id="bagDialog" class="sheet">
+    <button class="close" data-close aria-label="Close">×</button>
+    <h2>Your bag</h2>
+    <div id="bagItems"></div>
+    <div id="bagFooter"></div>
+  </dialog>
+
+  <script src="cards.js"></script>
+  <script src="app.js"></script>
+</body>
+</html>
